@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koh-e-Suleiman University - Faculty Members</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f8;
+        }
+        header {
+            text-align: center;
+            background: #004d40;
+            color: white;
+            padding: 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        header h2 {
+            margin-top: 5px;
+            font-weight: normal;
+        }
+        #searchInput {
+            margin-top: 15px;
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+        .faculty-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .faculty-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 15px;
+            padding: 15px;
+            text-align: center;
+            width: 250px;
+            transition: transform 0.2s;
+        }
+        .faculty-card:hover {
+            transform: scale(1.05);
+        }
+        .faculty-card img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #004d40;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 600px) {
+            .faculty-card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Koh-e-Suleiman University</h1>
+        <h2>Faculty Members Directory</h2>
+        <input type="text" id="searchInput" placeholder="Search faculty by name or department...">
+    </header>
+
+    <main id="facultyList" class="faculty-container">
+        <div class="faculty-card">
+            <img src="https://via.placeholder.com/150" alt="Dr. Ahsan Khan">
+            <h3>Dr. Ahsan Khan</h3>
+            <p>Department: Computer Science</p>
+            <p>Email: ahsan.khan@ksu.edu.pk</p>
+        </div>
+
+        <div class="faculty-card">
+            <img src="https://via.placeholder.com/150" alt="Prof. Sara Ali">
+            <h3>Prof. Sara Ali</h3>
+            <p>Department: English Literature</p>
+            <p>Email: sara.ali@ksu.edu.pk</p>
+        </div>
+
+        <div class="faculty-card">
+            <img src="https://via.placeholder.com/150" alt="Dr. Imran Malik">
+            <h3>Dr. Imran Malik</h3>
+            <p>Department: Physics</p>
+            <p>Email: imran.malik@ksu.edu.pk</p>
+        </div>
+
+        <div class="faculty-card">
+            <img src="https://via.placeholder.com/150" alt="Dr. Hina Qureshi">
+            <h3>Dr. Hina Qureshi</h3>
+            <p>Department: Mathematics</p>
+            <p>Email: hina.qureshi@ksu.edu.pk</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Koh-e-Suleiman University - All Rights Reserved</p>
+    </footer>
+
+    <script>
+        document.getElementById("searchInput").addEventListener("keyup", function() {
+            let filter = this.value.toLowerCase();
+            let cards = document.getElementsByClassName("faculty-card");
+
+            for (let i = 0; i < cards.length; i++) {
+                let name = cards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+                let dept = cards[i].getElementsByTagName("p")[0].innerText.toLowerCase();
+
+                if (name.includes(filter) || dept.includes(filter)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
